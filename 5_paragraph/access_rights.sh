@@ -1,0 +1,4 @@
+#!/bin/bash
+
+find . -type f -exec chmod 644 {} \; # для файлов
+find . -type d -exec chmod 755 {} \; # для директорий
