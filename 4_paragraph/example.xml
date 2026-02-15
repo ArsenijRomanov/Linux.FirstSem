@@ -6,3 +6,11 @@
   <name>dfs.namenode.data.dir</name>
   <value>/var/hdfs/data</value>
 </property>
+<property>
+  <name>dfs.namenode.data.dir</name>
+  <value>/var/hdfs/data</value>
+</property>
+<property>
+  <name>dfs.namenode.data.dir</name>
+  <value>/var/hdfs/data</value>
+</property>

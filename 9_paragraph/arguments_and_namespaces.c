@@ -9,8 +9,8 @@
 
 int child_main(void *ptr)
 {
-	const char *new_hostname = "spicy";
-	sethostname(new_hostname, strlen(new_hostname));
+	const char *name = (const char *)ptr;
+	sethostname(name, strlen(name));
 
 	char hostname[256];
 	gethostname(hostname, sizeof(hostname));
@@ -19,13 +19,13 @@ int child_main(void *ptr)
 	return 0;
 }
 
-int main()
+int main(int argc, char **argv)
 {
 	size_t stack_size = 1024 * 10;
 	char *child_stack = malloc(stack_size);
 
 	pid_t pid = clone(child_main, child_stack + stack_size - 100,
-					  CLONE_NEWUTS | CLONE_NEWUSER | SIGCHLD, NULL);
+					  CLONE_NEWUTS | CLONE_NEWUSER | SIGCHLD, argv[1]);
 
 	char hostname[256];
 	gethostname(hostname, sizeof(hostname));

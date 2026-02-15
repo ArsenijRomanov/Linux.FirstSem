@@ -1,8 +1,5 @@
 #include <stdio.h>
 
-#define USE_GPU = true;
-// #define USE_FLOAT = true;
-
 #if defined(USE_GPU) && defined(USE_FLOAT)
 void process()
 {
